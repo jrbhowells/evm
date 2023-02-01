@@ -11,7 +11,7 @@
 + tensorflow
 
 ## Execution
-Just run the __innit__.py file
+Just run the __init__.py file
 
 ## Acknowledgements 
 - https://github.com/absdnd/Eulerian_Motion_Magnification
