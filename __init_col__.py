@@ -18,8 +18,6 @@ _,img = cam.read()
 gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 s = Magnify(gray,alpha,lambda_c,fl,fh,fps)
 
-
-
 while True:
     t1 = time.process_time()
     _,img = cam.read()
