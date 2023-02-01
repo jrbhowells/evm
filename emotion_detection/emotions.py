@@ -38,7 +38,7 @@ cv2.ocl.setUseOpenCL(False)
 emotion_dict = {0: "Angry", 1: "Disgusted", 2: "Fearful", 3: "Happy", 4: "Neutral", 5: "Sad", 6: "Surprised"}
 
 # start the webcam feed
-cap = cv2.VideoCapture(0)
+# cap = cv2.VideoCapture(0)
 
 def emotion_detection(img):
     facecasc = cv2.CascadeClassifier('emotion_detection/haarcascade_frontalface_default.xml')
@@ -52,6 +52,6 @@ def emotion_detection(img):
         maxindex = int(np.argmax(prediction))
         cv2.putText(img, emotion_dict[maxindex], (x+20, y-60), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2, cv2.LINE_AA)
 
-    faces = facecasc.detectMultiScale(img,scaleFactor=1.3, minNeighbors=5)
+    # faces = facecasc.detectMultiScale(img,scaleFactor=1.3, minNeighbors=5)
 
     return img
