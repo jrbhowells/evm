@@ -17,16 +17,20 @@ cam = cv2.VideoCapture('woman2.mp4')
 _,img = cam.read()
 gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 s = Magnify(gray,alpha,lambda_c,fl,fh,fps)
+
+# Output files for videos
 evm_out = cv2.VideoWriter('evm_out.mp4', cv2.VideoWriter_fourcc(*'MP4V'), 30.0, (1280,720))
 emo_out = cv2.VideoWriter('emo_out.mp4', cv2.VideoWriter_fourcc(*'MP4V'), 30.0, (1280,720))
 
 # Desired number of frames to export
 length = 1000
+
+# Helpers: current frame and time
 fr = 0
 t1 = time.process_time()
 
 while True:
-    try:
+    try: # Catches and saves if we run out of frames - detecting no of frames is hard
         _,img = cam.read()
 
         evmb = s.Magnify(img[:,:,0]) # Blue component, magnified
@@ -39,6 +43,7 @@ while True:
         raw_emo = emotion_detection(img)
         evm_emo = emotion_detection(bgr)
 
+        # Write frames to files
         evm_out.write(evm_emo)
         emo_out.write(raw_emo)
 
