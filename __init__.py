@@ -33,7 +33,7 @@ while True:
 
     t2 = time.process_time()
     
-    print("set fps",1./(t2-t1))
+    print("set fps",1/(t2-t1))
 
 cam.release()
 cv2.destroyAllWindows()
