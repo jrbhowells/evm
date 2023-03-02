@@ -17,16 +17,16 @@ _,img = cam.read()
 gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 s = Magnify(gray,alpha,lambda_c,fl,fh,fps)
 
+
 while True:
     t1 = time.process_time()
     _,img = cam.read()
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     evm = s.Magnify(gray)
-    raw_emo = emotion_detection(gray)
-    evm_emo = emotion_detection(evm)
 
-    cv2.imshow('Raw', raw_emo)
-    cv2.imshow('EVM', evm_emo)
+    cv2.imshow('output', evm)
+    # cv2.imshow('outpet', p1)
+    # cv2.imshow('gray2', grayz)
 
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
