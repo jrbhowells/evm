@@ -124,10 +124,11 @@ class Magnify(object):
 			lambd = lambd/2.
 
 		# Reconstruct the pyramid using filtered. 
-		output = reconPyr(filtered)          
-		output = gray2 + output	    
+		output = reconPyr(filtered)
+
+		# output = gray2 + output	    
 		output[output<0] =  0
 		output[output>1]  = 1 
 		output  = img_as_ubyte(output)
-		
+
 		return output
